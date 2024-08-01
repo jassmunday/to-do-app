@@ -19,32 +19,40 @@ function CreateTodo() {
           },
           withCredentials: true,
         }
-        
       );
       console.log("Todo Created");
       setTitle("");
       setDescription("");
     } catch (error) {
-        console.log("Todo Created",error);
+      console.log("Todo Created", error);
     }
   };
 
   return (
-    <>
-      <input
-        type="text"
-        placeholder="Enter Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button onClick={addTodo}>Create</button>
-    </>
+    <div className="container mx-auto p-4 max-w-md">
+      <form onSubmit={addTodo} className="space-y-4">
+        <input
+          type="text"
+          placeholder="Enter Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full p-2 border rounded"
+        />
+        <input
+          type="text"
+          placeholder="Enter Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="w-full p-2 border rounded"
+        />
+        <button
+          type="submit"
+          className="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700"
+        >
+          Create
+        </button>
+      </form>
+    </div>
   );
 }
 
